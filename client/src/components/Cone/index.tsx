@@ -1,13 +1,13 @@
 import { DoubleSide } from "three";
 
 interface ConeProps {
-  vertices: number[];
-  segmentsNumber: number;
+  vertices?: number[];
+  segmentsNumber?: number;
 }
 
-const Cone = ({vertices, segmentsNumber}: ConeProps) =>  {
+const Cone = ({vertices = [], segmentsNumber = 0}: ConeProps) =>  {
   return (
-    <mesh scale={0.7} rotation={[5, 0.3, 0]}>
+    <mesh rotation={[5, 0.3, 0]}>
       <bufferGeometry attach="geometry" key={JSON.stringify(vertices)}>
         <bufferAttribute
           attach="attributes-position"
