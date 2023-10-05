@@ -1,12 +1,15 @@
-import express, { Express, Request, Response } from "express";
+import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
-import { computeConeData } from "./computeConeData";
+import {fileURLToPath} from "url";
+import { computeConeData } from "./computeConeData.js";
 
 dotenv.config();
 
-const app: Express = express();
+const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // middleware
 app.use(express.json());
@@ -17,8 +20,8 @@ app.use(cors());
 app.post("/api/compute", computeConeData);
 
 // Return the client
-app.get("/*", (_req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "./client/dist/index.html"));
+app.get("/*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "./client/index.html"));
 });
 
 const PORT = process.env.PORT || 3000;

@@ -3,20 +3,18 @@
   "version": "1.0.0",
   "description": "A cone drawing app",
   "main": "server.ts",
+  "type": "module",
   "scripts": {
-    "build": "npx tsc",
-    "start": "node dist/server.js",
-    "server": "nodemon server.ts",
+    "build": "npm run build --prefix client",
+    "postbuild": "rm -rf client/node_modules",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "client": "cd client && npm run dev"
   },
   "author": "Elena Erganyan",
   "license": "ISC",
   "devDependencies": {
-    "@types/cors": "^2.8.14",
-    "@types/express": "^4.17.18",
-    "@types/node": "^20.8.2",
-    "nodemon": "^3.0.1",
-    "typescript": "^5.2.2"
+    "nodemon": "^3.0.1"
   },
   "dependencies": {
     "cors": "^2.8.5",
