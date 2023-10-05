@@ -21,7 +21,9 @@ app.get("/*", (_req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "./client/dist/index.html"));
 });
 
+const PORT = process.env.PORT || 3000;
+
 // listen for requests
-app.listen(3000, () => {
-  console.log("listening on port", 3000);
+app.listen(PORT, () => {
+  console.log("listening on port", PORT);
 });
