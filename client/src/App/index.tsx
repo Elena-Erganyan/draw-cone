@@ -28,7 +28,7 @@ export default function App() {
 
   useEffect(() => {
     computeConeData();
-    //eslint-disable-next-line
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
